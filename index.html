@@ -8,9 +8,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
+        /* --- COLOR PALETTE: PROFESSIONAL BLUE SPECTRUM (White BG) --- */
+        
+        /* Define Colors for Easy Use */
+        :root {
+            --color-navy: #05445E; /* Deep Navy Blue (Headers, Deep Contrast) */
+            --color-primary: #189AB4; /* Blue Grotto (Main Accent, CTA Background) */
+            --color-secondary: #75E6DA; /* Blue Green (Pop/Secondary Accent, Stats) */
+            --color-white: #FFFFFF;
+            --color-background: #FFFFFF; /* White (Page Background) */
+            --color-card-bg: #D4F1F4; /* Baby Blue (Testimonial Card Background) */
+            --color-danger: #FF4136; /* Bright Red for Problem Section */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #F0F4F8;
+            background-color: var(--color-background); /* Now White */
         }
         .chart-container {
             position: relative;
@@ -28,15 +41,16 @@
             }
         }
         .stat-card {
-            background-color: white;
+            background-color: var(--color-card-bg); /* CHANGED */
             border-radius: 0.75rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             padding: 1.5rem;
             text-align: center;
-            border-left: 8px solid #0059CF;
+            /* Blue Green Accent Border (Secondary) */
+            border-left: 8px solid var(--color-secondary);
         }
         .flow-step {
-            background-color: #ffffff;
+            background-color: var(--color-card-bg); /* CHANGED */
             border-radius: 0.5rem;
             padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -47,61 +61,55 @@
         .flow-arrow {
             font-size: 2.5rem;
             font-weight: 900;
-            color: #0059CF;
+            color: var(--color-primary);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 1rem 0;
         }
         .table-header {
-            background-color: #00449E;
-            color: white;
+            background-color: var(--color-navy);
+            color: var(--color-white);
         }
         .table-cell {
             padding: 1rem 1.5rem;
             text-align: left;
             border-bottom: 1px solid #E5E7EB;
         }
-        .text-primary { color: #0059CF; }
-        .text-deep-blue { color: #00449E; }
-        .bg-primary { background-color: #0059CF; }
-        .bg-deep-blue { background-color: #00449E; }
-        .border-primary { border-color: #0059CF; }
+        .text-primary { color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        .text-deep-blue { color: var(--color-navy); }
+        .text-baby-blue { color: var(--color-card-bg); } /* Baby Blue Text */
+        .bg-primary { background-color: var(--color-primary); }
+        .bg-deep-blue { background-color: var(--color-navy); }
+        .border-primary { border-color: var(--color-primary); }
         .big-number {
             font-size: 3rem; 
             font-weight: 900; 
             line-height: 1;
         }
         .testimonial-card {
-            background-color: #E8F0FF; /* Light blue background for contrast */
+            background-color: var(--color-card-bg); /* Using light Baby Blue background */
             border-radius: 0.75rem;
             padding: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #0059CF; /* Blue accent line */
+            border-top: 4px solid var(--color-primary); /* Blue Grotto accent line */
         }
     </style>
 </head>
 <body class="text-gray-800">
 
     <header class="bg-deep-blue text-white p-8 text-center shadow-lg">
-        <div class="flex flex-col items-center justify-center">
-            <!-- UPDATED: Changed placeholder URL to use a transparent background (f0f4f8) 
-                 and a light blue text color (#00DFFC) for better contrast on the dark header. 
-                 This emulates a transparent logo better. -->
-            <img src="https://placehold.co/150x50/00449E/00DFFC?text=Twindesk+Logo" 
-                 alt="Twindesk Logo" 
-                 class="h-12 w-auto mb-4"
-                 style="filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));">
-        </div>
+        <!-- LOGO SECTION REMOVED HERE -->
         <h1 class="text-4xl md:text-5xl font-extrabold mb-2">TWINDESK: ELITE VIRTUAL ASSISTANTS</h1>
-        <h2 class="text-2xl md:text-3xl font-semibold text-blue-200">Zero Hiring Risk. Guaranteed Performance.</h2>
+        <h2 class="text-2xl md:text-3xl font-semibold text-primary">Elite Vetting. Guaranteed Placement.</h2>
     </header>
 
     <main class="container mx-auto p-4 md:p-8 max-w-7xl">
 
         <section id="problem-solution" class="mb-16">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-[var(--color-card-bg)] p-6 rounded-lg shadow-md"> <!-- CHANGED -->
                     <h3 class="text-2xl font-bold text-red-600 mb-4">The Problem We Solve</h3>
                     <ul class="list-none space-y-4">
                         <li class="flex items-start">
@@ -121,13 +129,14 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-8 border-primary">
+                <div class="bg-[var(--color-card-bg)] p-6 rounded-lg shadow-md border-t-8 border-primary"> <!-- CHANGED -->
                     <h3 class="text-2xl font-bold text-primary mb-4">The TwinDesk Solution</h3>
                     <p class="text-lg text-gray-700 mb-4">We provide high-caliber, <strong>pre-vetted</strong> talent for Executive, Admin, and Customer Service roles with an industry-leading <strong>6-Month Performance Warranty</strong>.</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Executive VA</span>
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Administrative Assistant</span>
-                        <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">Customer Service VA</span>
+                        <!-- Color pills changed to Primary/Blue Grotto border and light background -->
+                        <span class="bg-blue-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full border border-primary">Executive VA</span>
+                        <span class="bg-blue-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full border border-primary">Administrative Assistant</span>
+                        <span class="bg-blue-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full border border-primary">Customer Service VA</span>
                     </div>
                 </div>
             </div>
@@ -138,14 +147,15 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <div class="md:col-span-2">
+                    <!-- This uses .stat-card, which is already changed in CSS -->
                     <div class="stat-card p-8">
-                        <h3 class="text-2xl font-bold text-primary mb-2">1. The 6-Month Performance Guarantee</h3>
+                        <h3 class="text-2xl font-bold text-deep-blue mb-2">1. The 6-Month Performance Guarantee</h3>
                         <p class="text-lg text-gray-700 mb-4">Every successful hire is covered. If you are dissatisfied with the VA's performance within the first six months, <strong>we source and place a free replacement immediately.</strong></p>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-primary mb-3">2. Proven Specialization: Where Our Vetting Focuses</h3>
+                <div class="bg-[var(--color-card-bg)] p-6 rounded-lg shadow-md"> <!-- CHANGED -->
+                    <h3 class="text-xl font-bold text-deep-blue mb-3">2. Proven Specialization: Where Our Vetting Focuses</h3>
                     <p class="text-gray-600 mb-6">Our model is built around high-demand roles. This visual breakdown shows the core weighted composition of our pre-vetting focus, ensuring deep, measured expertise in the most critical administrative verticals.</p>
                     <div class="chart-container h-96 max-h-96">
                         <canvas id="specialistDoughnutChart"></canvas>
@@ -153,8 +163,8 @@
                     <p class="text-sm text-gray-500 mt-4 text-center">We test across all critical administrative verticals, with a strong focus on high-stakes EMR/Billing and Executive Financials.</p>
                 </div>
 
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-primary mb-3">3. Vetted Core Competencies</h3>
+                <div class="bg-[var(--color-card-bg)] p-6 rounded-lg shadow-md"> <!-- CHANGED -->
+                    <h3 class="text-xl font-bold text-deep-blue mb-3">3. Vetted Core Competencies</h3>
                     <p class="text-gray-600 mb-6">Our vetting criteria are based on measurable outcomes achieved in real-world high-volume, regulated, and executive environments.</p>
                     <div class="chart-container">
                         <canvas id="specialistRadarChart"></canvas>
@@ -168,22 +178,23 @@
             <h2 class="text-3xl font-extrabold text-center text-deep-blue mb-8">Credibility by the Numbers: The Twindesk Standard</h2>
             <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-10">The standard we hold our candidates to is non-negotiable. Our vetting process is designed by a founder who has personally achieved elite metrics in administration, support, and digital strategy.</p>
             
+            <!-- This section uses .stat-card, which is already changed in CSS -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="stat-card p-6 border-l-8 border-primary">
-                    <p class="big-number text-primary">99%</p>
+                <div class="stat-card p-6 border-l-8 border-secondary">
+                    <p class="big-number text-deep-blue">99%</p>
                     <h4 class="text-lg font-semibold mt-2">Executive & Admin Efficiency</h4>
                     <p class="text-sm text-gray-600">Vetted proficiency in autonomous scheduling, complex coordination, and financial reconciliation.</p>
                 </div>
 
-                <div class="stat-card p-6 border-l-8 border-primary">
-                    <p class="big-number text-primary">100+</p>
+                <div class="stat-card p-6 border-l-8 border-secondary">
+                    <p class="big-number text-deep-blue">100+</p>
                     <h4 class="text-lg font-semibold mt-2">Daily Support Volume</h4>
                     <p class="text-sm text-gray-600">Testing for sustained high-volume, on-brand support resolution in CRMs (HubSpot, Freshdesk).</p>
                 </div>
 
-                <div class="stat-card p-6 border-l-8 border-primary">
-                    <p class="big-number text-primary">5+</p>
+                <div class="stat-card p-6 border-l-8 border-secondary">
+                    <p class="big-number text-deep-blue">5+</p>
                     <h4 class="text-lg font-semibold mt-2">Digital & Design Platforms</h4>
                     <p class="text-sm text-gray-600">Certification in tools like Wix, Canva, DaVinci Resolve for content creation and website maintenance.</p>
                 </div>
@@ -194,16 +205,19 @@
             <h2 class="text-3xl font-extrabold text-center text-deep-blue mb-8">Client Success Stories</h2>
             <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-10">Don't just take our word for it—see how TwinDesk-vetted talent transforms our clients' operations, from organization to specialized financial tasks.</p>
 
+            <!-- This section uses .testimonial-card, which already uses the correct color -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
+                <!-- Testimonial 1 - Text color changed to Navy for readability -->
                 <div class="testimonial-card">
                     <p class="text-xl italic text-gray-800 mb-4">"Maria has become an integral member of our back office team. She helps us stay organized and on top of collections for all of our clients. She's organized and always willing to take on any task that comes up. It's incredibly valuable to have someone that we can turn to when small projects come up so that my time can be freed up to keep working on growing and managing the business."</p>
-                    <p class="text-lg font-bold text-primary">— Jesse L. - CEO</p>
+                    <p class="text-lg font-bold text-deep-blue">— Jesse L. - CEO</p>
                 </div>
 
+                <!-- Testimonial 2 - Text color changed to Navy for readability -->
                 <div class="testimonial-card">
                     <p class="text-xl italic text-gray-800 mb-4">"Maria - once again very impressed. Probably best admin support I have seen in terms of setting expectations & explaining over the years. Know how I'm being charged, when, & distinctions on client vs. provider roles. Awesome! Also like how <i>italics</i>, <b>bold</b>, & <u>font</u> are used to highlight quick points at a glance."</p>
-                    <p class="text-lg font-bold text-primary">— Ward A. - CEO</p>
+                    <p class="text-lg font-bold text-deep-blue">— Ward A. - CEO</p>
                 </div>
 
             </div>
@@ -214,10 +228,12 @@
             <h2 class="text-3xl font-extrabold text-center text-deep-blue mb-8">Our Proof: The 3-Step Vetting Framework</h2>
             <p class="text-lg text-center text-gray-700 max-w-3xl mx-auto mb-10">We source elite candidates from our 30,000+ member network and put them through a rigorous process to accelerate placement from months to days.</p>
             
+            <!-- This section uses .flow-step, which is already changed in CSS -->
             <div class="flex flex-col md:flex-row items-stretch justify-center gap-6">
                 <div class="flow-step">
-                    <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-2">Screening & Assessment</h3>
+                    <!-- Flow Step Icon and Text color changed (Primary is Blue Grotto, Text is Deep Navy) -->
+                    <div class="bg-primary text-deep-blue rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold text-deep-blue mb-2">Screening & Assessment</h3>
                     <p class="text-gray-600">Comprehensive resume screening and a <strong>mandatory video introduction</strong> to assess communication and professionalism.</p>
                 </div>
                 
@@ -227,8 +243,9 @@
                 </div>
 
                 <div class="flow-step">
-                    <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-2">Live Interview & Task Audit</h3>
+                    <!-- Flow Step Icon and Text color changed -->
+                    <div class="bg-primary text-deep-blue rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold text-deep-blue mb-2">Live Interview & Task Audit</h3>
                     <p class="text-gray-600">In-depth behavioral interviews and <strong>live, scenario-based proficiency testing</strong> in billing, scheduling, and CRMs.</p>
                 </div>
                 
@@ -238,8 +255,9 @@
                 </div>
 
                 <div class="flow-step">
-                    <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">3</div>
-                    <h3 class="text-xl font-bold mb-2">Final Presentation & Placement</h3>
+                    <!-- Flow Step Icon and Text color changed -->
+                    <div class="bg-primary text-deep-blue rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold text-deep-blue mb-2">Final Presentation & Placement</h3>
                     <p class="text-gray-600">A curated <strong>short-list</strong> of candidates who have passed all audits is presented for your final selection.</p>
                 </div>
             </div>
@@ -252,6 +270,7 @@
             <div class="overflow-x-auto bg-white rounded-lg shadow-lg">
                 <table class="w-full min-w-max">
                     <thead>
+                        <!-- Table header background changed to Navy -->
                         <tr class="table-header">
                             <th class="table-cell font-bold text-lg">Fee Structure</th>
                             <th class="table-cell font-bold text-lg">Amount</th>
@@ -277,30 +296,33 @@
                     </tbody>
                 </table>
             </div>
+        </img-src>
         </section>
 
         <section id="cta" class="bg-deep-blue text-white text-center p-10 rounded-lg shadow-xl">
             <h2 class="text-4xl font-extrabold mb-4">Ready for a Guaranteed Hire?</h2>
-            <h3 class="text-2xl font-semibold text-blue-200 mb-6">Stop Rolling the Dice. Hire the Best.</h3>
+            <h3 class="text-2xl font-semibold text-baby-blue mb-6">Stop Rolling the Dice. Hire the Best.</h3>
             
             <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
-                <div class="bg-blue-900 p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
-                    <span class="text-green-400 text-2xl font-bold">&#10004;</span>
-                    <span class="text-lg font-medium">System-Ready</span>
+                <!-- Checkmark backgrounds changed to Baby Blue, text to Navy -->
+                <div class="bg-[var(--color-card-bg)] p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
+                    <span class="text-primary text-2xl font-bold">&#10004;</span>
+                    <span class="text-lg font-medium text-deep-blue">System-Ready</span>
                 </div>
-                <div class="bg-blue-900 p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
-                    <span class="text-green-400 text-2xl font-bold">&#10004;</span>
-                    <span class="text-lg font-medium">Discreet</span>
+                <div class="bg-[var(--color-card-bg)] p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
+                    <span class="text-primary text-2xl font-bold">&#10004;</span>
+                    <span class="text-lg font-medium text-deep-blue">Discreet</span>
                 </div>
-                <div class="bg-blue-900 p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
-                    <span class="text-green-400 text-2xl font-bold">&#10004;</span>
-                    <span class="text-lg font-medium">Productive on Day 1</span>
+                <div class="bg-[var(--color-card-bg)] p-4 rounded-lg flex items-center justify-center md:justify-start gap-3">
+                    <span class="text-primary text-2xl font-bold">&#10004;</span>
+                    <span class="text-lg font-medium text-deep-blue">Productive on Day 1</span>
                 </div>
             </div>
             
-            <p class="text-lg text-blue-100 mb-8">Contact us to define your specific needs or schedule your call to start the qualification and match process.</p>
+            <p class="text-lg text-gray-300 mb-8">Contact us to define your specific needs or schedule your call to start the qualification and match process.</p>
             
-            <a href="https://calendly.com/sgmejia0826/coffee-chat-let-s-talk-about-your-business-goals?month=2025-10&date=2025-10-27" class="bg-white text-deep-blue font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-blue-100 transition duration-300">
+            <!-- CTA button text color changed to Navy -->
+            <a href="https://calendly.com/sgmejia0826/coffee-chat-let-s-talk-about-your-business-goals?month=2025-10&date=2025-10-27" class="bg-primary text-deep-blue font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-cyan-600 transition duration-300">
                 Schedule Your Call
             </a>
         </section>
@@ -345,12 +367,13 @@
                 datasets: [{
                     label: 'Vetted Expertise Level',
                     data: [5, 4, 5, 4, 3],
-                    backgroundColor: 'rgba(0, 89, 207, 0.2)',
-                    borderColor: '#0059CF',
-                    pointBackgroundColor: '#0059CF',
+                    // Chart colors changed to Navy background and Blue Grotto line
+                    backgroundColor: 'rgba(212, 241, 244, 0.5)', /* Baby Blue transparent */
+                    borderColor: '#189AB4', // Blue Grotto (Primary)
+                    pointBackgroundColor: '#05445E', // Navy point
                     pointBorderColor: '#fff',
                     pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#0059CF',
+                    pointHoverBorderColor: '#05445E',
                     borderWidth: 2
                 }]
             };
@@ -364,17 +387,17 @@
                     scales: {
                         r: {
                             angleLines: {
-                                color: 'rgba(0, 0, 0, 0.1)'
+                                color: 'rgba(5, 68, 94, 0.2)' // Navy lines
                             },
                             grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
+                                color: 'rgba(5, 68, 94, 0.2)' // Navy grid
                             },
                             pointLabels: {
                                 font: {
                                     size: 10,
                                     weight: 'bold'
                                 },
-                                color: '#333333'
+                                color: '#05445E' // Navy text
                             },
                             ticks: {
                                 backdropColor: 'transparent',
@@ -389,7 +412,7 @@
                         legend: {
                             position: 'top',
                             labels: {
-                                color: '#333333',
+                                color: '#189AB4', // CHANGED: Blue Grotto legend text
                                 font: {
                                     size: 14,
                                     weight: '600'
@@ -426,14 +449,15 @@
 
             const distributionData = {
                 labels: distributionLabels,
-                datasets: [{
+                    datasets: [{
                     label: 'Vetting Focus Distribution',
                     data: [35, 30, 25, 10], // Distribution percentages
+                    // Chart slice colors changed to the Custom scheme
                     backgroundColor: [
-                        '#0059CF', // Primary Blue
-                        '#00449E', // Deep Blue
-                        '#4A90E2', // Lighter Blue
-                        '#8CB8E8'  // Pale Blue
+                        '#189AB4', // Blue Grotto Primary
+                        '#05445E', // Deep Navy
+                        '#75E6DA', // Blue Green Pop
+                        '#D4F1F4'  // Baby Blue Light
                     ],
                     borderColor: '#FFFFFF',
                     borderWidth: 2
@@ -449,13 +473,21 @@
                     cutout: '70%',
                     plugins: {
                         legend: {
-                            // FIX: Changed position from 'bottom' to 'right' to stop label wrapping/overlapping
                             position: 'right', 
                             labels: {
-                                color: '#333333',
-                                font: {
-                                    size: 14,
-                                    weight: '600'
+                                // CHANGED: Function to highlight specific label
+                                color: function(context) {
+                                    // Highlight the 'Digital Marketing & Design' label (index 3)
+                                    const isHighlighted = context.dataIndex === 3;
+                                    return isHighlighted ? '#05445E' : '#4B5563'; // Highlighted: Navy, Others: Gray
+                                },
+                                font: function(context) {
+                                    // Make the highlighted label bold
+                                    const isHighlighted = context.dataIndex === 3;
+                                    return {
+                                        size: 14,
+                                        weight: isHighlighted ? '900' : '600'
+                                    };
                                 }
                             }
                         },
@@ -492,3 +524,4 @@
     </script>
 </body>
 </html>
+
